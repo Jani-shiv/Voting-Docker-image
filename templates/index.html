@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Voting Machine</title>
+    <!-- Use Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="bento-container">
+        <!-- Header Bento Box -->
+        <header class="bento-box bento-header">
+            <h1>Ultimate Voting</h1>
+            <p>Select your favorite character</p>
+        </header>
+
+        <!-- Voter Info Bento Box -->
+        <section class="bento-box bento-voter">
+            <div class="input-group">
+                <label for="voter-name">Voter Name</label>
+                <input type="text" id="voter-name" placeholder="Enter your full name" required>
+            </div>
+        </section>
+
+        <!-- Party Cards (Bento Boxes) -->
+        <div class="bento-box party-card" data-party="Oggy">
+            <div class="party-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYaQASZF1xfOHrgs2tzjUEkmObSiKFwPVq8OwOlfQ-hw&s=10')"></div>
+            <div class="party-info">
+                <h2>Oggy</h2>
+            </div>
+        </div>
+
+        <div class="bento-box party-card" data-party="Hathori">
+            <div class="party-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_n-mAcByXixC5suVW7tKp4lp6i73m0Wf8eHcS0QTVuw&s=10')"></div>
+            <div class="party-info">
+                <h2>Hathori</h2>
+            </div>
+        </div>
+
+        <div class="bento-box party-card" data-party="Doremon">
+            <div class="party-image doremon-fix" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/b/bd/Doraemon_character.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original')"></div>
+            <div class="party-info">
+                <h2>Doremon</h2>
+            </div>
+        </div>
+
+        <div class="bento-box party-card" data-party="Sinchan">
+            <div class="party-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc4rxhIYChVoBkSSfneQ41eo6cJ8Jzyx0GTW7WPxPiNA&s=10')"></div>
+            <div class="party-info">
+                <h2>Sinchan</h2>
+            </div>
+        </div>
+
+        <!-- Action Bento Box -->
+        <div class="bento-box bento-action">
+            <button id="vote-btn" class="primary-btn" disabled>Cast Your Vote</button>
+            <p id="status-message" class="hidden"></p>
+        </div>
+
+        <!-- Results Bento Box -->
+        <section class="bento-box bento-results">
+            <h2>Current Standings</h2>
+            <div class="results-grid" id="results-container">
+                <!-- Results injected via JS -->
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
