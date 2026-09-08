@@ -1,0 +1,68 @@
+services:
+  # 1. DATABASE CONTAINER (PostgreSQL)
+  db:
+    image: postgres:16-alpine
+    container_name: voting_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: voting_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+    ports:
+      - "5432:5432" # Accessible locally for database tools (e.g., pgAdmin, DBeaver)
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d voting_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - voting-network
+
+  # 2. BACKEND CONTAINER (Flask API)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: jani712/voting-backend:latest
+    container_name: voting_backend
+    restart: unless-stopped
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: voting_db
+      DB_USER: postgres
+      DB_PASSWORD: postgrespassword
+      PYTHONUNBUFFERED: "1"
+    ports:
+      - "5000:5000" # Expose for direct API testing if desired
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - voting-network
+
+  # 3. FRONTEND CONTAINER (Nginx Web Server + Reverse Proxy)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: jani712/voting-frontend:latest
+    container_name: voting_frontend
+    restart: unless-stopped
+    ports:
+      - "8085:80" # Main application entry point: http://localhost:8085
+    depends_on:
+      - backend
+    networks:
+      - voting-network
+
+volumes:
+  postgres_data:
+    name: voting_postgres_data
+
+networks:
+  voting-network:
+    name: voting_network
+    driver: bridge
