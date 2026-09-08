@@ -1,0 +1,312 @@
+:root {
+    --bg-color: #e5e5e5;
+    --text-main: #000000;
+    --border-color: #000000;
+    --accent-color: #0000ff;
+    --accent-hover: #0000aa;
+    --box-bg: #ffffff;
+    --success: #008000;
+    --danger: #ff0000;
+    --font-stack: "Courier New", Courier, monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-stack);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Utilitarian Grid Layout */
+.bento-container {
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+}
+
+/* Base Box Style */
+.bento-box {
+    background: var(--box-bg);
+    border: 3px solid var(--border-color);
+    padding: 1.5rem;
+    box-shadow: 6px 6px 0 var(--border-color);
+    transition: transform 0.1s linear, box-shadow 0.1s linear;
+}
+
+/* Grid Area Assignments */
+.bento-header {
+    grid-column: span 4;
+    text-align: left;
+    border-bottom-width: 6px;
+}
+
+.bento-voter {
+    grid-column: span 4;
+    background-color: #f0f0f0;
+}
+
+.party-card {
+    grid-column: span 1;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.bento-action {
+    grid-column: span 4;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.bento-results {
+    grid-column: span 4;
+    background-color: #ffffcc;
+}
+
+/* Typography */
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    border-bottom: 3px solid var(--border-color);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.bento-header p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Form Elements */
+.input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+input[type="text"] {
+    background: var(--box-bg);
+    border: 3px solid var(--border-color);
+    padding: 1rem;
+    color: var(--text-main);
+    font-size: 1.2rem;
+    outline: none;
+    border-radius: 0;
+}
+
+input[type="text"]:focus {
+    background-color: #e6f2ff;
+    border-color: var(--accent-color);
+}
+
+/* Party Cards */
+.party-image {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 1rem;
+    border: 3px solid var(--border-color);
+    filter: grayscale(100%) contrast(1.2);
+    transition: filter 0.2s;
+}
+
+.party-image.doremon-fix {
+    background-size: contain;
+    background-color: white;
+}
+
+.party-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 var(--border-color);
+}
+
+.party-card:hover .party-image {
+    filter: grayscale(0%) contrast(1.1);
+}
+
+.party-card.selected {
+    background-color: var(--border-color);
+    color: var(--box-bg);
+}
+
+.party-card.selected .party-image {
+    filter: grayscale(0%) contrast(1.1);
+    border-color: var(--box-bg);
+}
+
+.party-card.selected h2 {
+    color: var(--box-bg);
+}
+
+.party-card.selected::after {
+    content: '[ SELECTED ]';
+    display: block;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--box-bg);
+}
+
+/* Button */
+.primary-btn {
+    width: 100%;
+    padding: 1.5rem;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: 4px solid var(--border-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 6px 6px 0 var(--border-color);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.primary-btn:hover:not(:disabled) {
+    background-color: var(--accent-hover);
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 var(--border-color);
+}
+
+.primary-btn:active:not(:disabled) {
+    transform: translate(6px, 6px);
+    box-shadow: 0 0 0 var(--border-color);
+}
+
+.primary-btn:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    border-color: #999999;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Status Messages */
+.hidden {
+    display: none !important;
+}
+
+#status-message {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 3px solid var(--border-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--box-bg);
+}
+
+.status-success {
+    color: var(--success);
+    border-color: var(--success) !important;
+}
+
+.status-error {
+    color: var(--danger);
+    border-color: var(--danger) !important;
+}
+
+/* Results */
+.bento-results h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.results-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 3px solid var(--border-color);
+    background-color: var(--box-bg);
+}
+
+.result-item {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--border-color);
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-item:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.result-item:hover .result-count {
+    color: #ffffff;
+}
+
+.result-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.result-count {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .party-card {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 500px) {
+    .bento-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .bento-header, .bento-voter, .party-card, .bento-action, .bento-results {
+        grid-column: span 1;
+    }
+}
