@@ -1,5 +1,7 @@
 # 🗳️ Ultimate Voting Machine — Multi-Container Dockerized Application
 
+<div align="center">
+
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![Docker Compose](https://img.shields.io/badge/Docker_Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docs.docker.com/compose/)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
@@ -7,6 +9,14 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16--Alpine-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Nginx](https://img.shields.io/badge/Nginx-Alpine-009639?style=for-the-badge&logo=nginx&logoColor=white)](https://nginx.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](./LICENSE)
+
+[![GitHub Stars](https://img.shields.io/github/stars/Jani-shiv/Voting-Docker-image?style=for-the-badge&logo=github&color=f59e0b)](https://github.com/Jani-shiv/Voting-Docker-image/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/Jani-shiv/Voting-Docker-image?style=for-the-badge&logo=github&color=3b82f6)](https://github.com/Jani-shiv/Voting-Docker-image/network/members)
+[![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-Follow%20%40shiv--jani-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shiv-jani/)
+
+</div>
+
+---
 
 An interactive, responsive voting application featuring a high-contrast brutalist Bento-grid UI. The project supports both **standalone local execution** (Flask + SQLite) and a **production-ready 3-tier microservice architecture** containerized with **Docker** and orchestrated using **Docker Compose** (Nginx + Flask + PostgreSQL).
 
@@ -20,7 +30,9 @@ An interactive, responsive voting application featuring a high-contrast brutalis
 - [API Reference](#-api-reference)
 - [Local Standalone Setup (Without Docker)](#-local-standalone-setup-without-docker)
 - [Essential Docker Commands](#-essential-docker-commands)
+- [Star History](#-star-history)
 - [Project Directory Structure](#-project-directory-structure)
+- [Author & Connect](#-author--connect)
 - [License](#-license)
 
 ---
@@ -231,6 +243,22 @@ docker compose down -v
 
 ---
 
+## 🌟 Star History
+
+If you found this project helpful, please give it a ⭐ **Star** on GitHub to show support!
+
+<div align="center">
+  <a href="https://star-history.com/#Jani-shiv/Voting-Docker-image&Date">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Jani-shiv/Voting-Docker-image&type=Date&theme=dark" />
+      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Jani-shiv/Voting-Docker-image&type=Date" />
+      <img alt="Voting-Docker-image Star History Chart" src="https://api.star-history.com/svg?repos=Jani-shiv/Voting-Docker-image&type=Date" width="100%" />
+    </picture>
+  </a>
+</div>
+
+---
+
 ## 📂 Project Directory Structure
 
 ```plaintext
@@ -266,6 +294,28 @@ Voting-Docker-image/
 └── templates/                    # Jinja2 templates for standalone Flask app
     └── index.html
 ```
+
+---
+
+## 👨‍💻 Author & Connect
+
+<div align="center">
+
+<a href="https://github.com/Jani-shiv">
+  <img src="https://avatars.githubusercontent.com/u/153932136?v=4" width="110" height="110" style="border-radius: 50%;" alt="Shiv Jani Avatar" />
+</a>
+
+### **Shiv Jani**
+*DevOps Engineer & Linux Practitioner*
+
+Passionate about Linux, CI/CD, container orchestration, and reliable cloud-native infrastructure.
+
+[![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-Connect%20%26%20Follow-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shiv-jani/)
+[![GitHub Follow](https://img.shields.io/badge/GitHub-Follow%20%40Jani--shiv-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Jani-shiv)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit%20Website-4F46E5?style=for-the-badge&logo=google-chrome&logoColor=white)](https://itsme-gold.vercel.app)
+[![YouTube](https://img.shields.io/badge/YouTube-DevOpsNi%20Diary-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@devopsnidiary)
+
+</div>
 
 ---
 
